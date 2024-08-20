@@ -1,5 +1,7 @@
 # Detects whether this is a top-level project
 get_directory_property(HAS_PARENT PARENT_DIRECTORY)
+set(POLYSOLVE_WITH_MKL OFF)
+set(EIGEN_WITH_MKL OFF)
 if(HAS_PARENT)
     set(POLYFEM_TOPLEVEL_PROJECT OFF)
 else()
@@ -83,7 +85,7 @@ if(POLYFEM_CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   target_link_options(polyfem_coverage_config INTERFACE --coverage)
 endif()
 
-add_compile_definitions(JSON_DIAGNOSTICS=1)
+# add_compile_definitions(JSON_DIAGNOSTICS=1)
 
 # Set default minimum C++ standard
 if(POLYFEM_TOPLEVEL_PROJECT)
