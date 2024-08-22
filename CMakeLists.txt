@@ -1,7 +1,7 @@
 # Detects whether this is a top-level project
 get_directory_property(HAS_PARENT PARENT_DIRECTORY)
-set(POLYSOLVE_WITH_MKL OFF)
-set(EIGEN_WITH_MKL OFF)
+# set(POLYSOLVE_WITH_MKL OFF)
+# set(EIGEN_WITH_MKL OFF)
 if(HAS_PARENT)
     set(POLYFEM_TOPLEVEL_PROJECT OFF)
 else()
