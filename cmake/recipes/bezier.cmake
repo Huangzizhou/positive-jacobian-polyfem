@@ -16,4 +16,4 @@ if (IPRED_ARITHMETIC)
 endif()
 
 include(CPM)
-CPMAddPackage("https://gitlab.com/fsichetti/robust-bezier-subdivision.git#5e1d6a45167762c11cbdd68187955782092c36d5")
+CPMAddPackage("https://gitlab.com/fsichetti/robust-bezier-subdivision.git#52bdce961734fa3729ea1348a6e433de7e947d58")
