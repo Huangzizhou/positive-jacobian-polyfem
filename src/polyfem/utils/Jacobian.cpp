@@ -1,4 +1,4 @@
-#include <jacobian/element_validity.hpp>
+#include <bezier/element_validity.hpp>
 #include <polyfem/utils/Logger.hpp>
 #include <polyfem/utils/Rational.hpp>
 #include "Jacobian.hpp"

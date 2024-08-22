@@ -1,11 +1,12 @@
-# Jacobian Positivity Check (https://github.com/fsichetti/jacobian)
+# Robust Bezier subdivision (https://gitlab.com/fsichetti/robust-bezier-subdivision)
 # License: MIT
 
-if(TARGET jacobian)
+if(TARGET bezier)
     return()
 endif()
 
-message(STATUS "Third-party: creating target 'jacobian'")
+message(STATUS "Third-party: creating target 'bezier'")
+
 
 option(PARAVIEW_OUTPUT "Export elements to Paraview" OFF)
 option(HDF5_INTERFACE "Process HDF5 datasets" OFF)
@@ -15,4 +16,4 @@ if (IPRED_ARITHMETIC)
 endif()
 
 include(CPM)
-CPMAddPackage("git@github.com:username/jacobian.git#b21bc49ce902fe329d3a256a60ed5a16a64e6a1b")
+CPMAddPackage("https://gitlab.com/fsichetti/robust-bezier-subdivision.git#5e1d6a45167762c11cbdd68187955782092c36d5")

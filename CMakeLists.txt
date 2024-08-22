@@ -89,7 +89,7 @@ endif()
 
 # Set default minimum C++ standard
 if(POLYFEM_TOPLEVEL_PROJECT)
-    set(CMAKE_CXX_STANDARD 17)
+    set(CMAKE_CXX_STANDARD 20)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
     set(CMAKE_CXX_EXTENSIONS OFF)
 endif()
@@ -200,8 +200,8 @@ include(ipc_toolkit)
 target_link_libraries(polyfem PUBLIC ipc::toolkit)
 
 # Jacobian
-include(jacobian)
-target_link_libraries(polyfem PRIVATE jacobian)
+include(bezier)
+target_link_libraries(polyfem PUBLIC bezier)
 
 # Threading
 if(POLYFEM_THREADING STREQUAL "CPP")
