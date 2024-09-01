@@ -201,7 +201,7 @@ target_link_libraries(polyfem PUBLIC ipc::toolkit)
 
 # Jacobian
 include(bezier)
-target_link_libraries(polyfem PUBLIC bezier::bezier)
+target_link_libraries(polyfem PRIVATE bezier::bezier)
 
 # Threading
 if(POLYFEM_THREADING STREQUAL "CPP")
