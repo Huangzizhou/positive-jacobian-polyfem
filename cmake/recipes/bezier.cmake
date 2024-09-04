@@ -8,14 +8,16 @@ endif()
 message(STATUS "Third-party: creating target 'bezier'")
 
 
-option(PARAVIEW_OUTPUT "Export elements to Paraview" OFF)
-option(HDF5_INTERFACE "Process HDF5 datasets" OFF)
 option(IPRED_ARITHMETIC "Use the efficient Indirect Predicates library" ON)
+option(UNIT_TESTS "Run unit tests" ON)
+option(LAGVEC_GCC_O0 "Disable optimization for some complicated functions" ON)
+option(HDF5_INTERFACE "Process HDF5 datasets" ON)
 if (IPRED_ARITHMETIC)
     add_compile_definitions(IPRED_ARITHMETIC)
 endif()
+add_compile_definitions(EIGEN_INTERFACE)
 
 include(CPM)
-CPMAddPackage("https://gitlab.com/fsichetti/robust-bezier-subdivision.git#9241344df7694375f6a9b5ea5cd2d5be2a756ef9")
+CPMAddPackage("https://gitlab.com/fsichetti/robust-bezier-subdivision.git#5d4fa77df6eab48c1da368e06dce1d388be0e5a1")
 
-set_target_properties(bezier PROPERTIES CXX_STANDARD 20)
+set_target_properties(bezier PROPERTIES CXX_STANDARD 17)
