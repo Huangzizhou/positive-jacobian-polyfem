@@ -97,6 +97,8 @@ namespace polyfem
 				double step_size = starting_step_size;
 				TVector new_x = x + step_size * delta_x;
 
+				objFunc.before_line_search(x, new_x);
+
 				// Find step that does not result in nan or infinite energy
 				while (step_size > min_step_size && cur_iter < max_step_size_iter)
 				{

@@ -58,6 +58,8 @@ int optimization_simulation(const CLI::App &command_line,
 							const spdlog::level::level_enum &log_level,
 							json &opt_args);
 
+std::string hdf5_out = "";
+
 int main(int argc, char **argv)
 {
 	using namespace polyfem;
@@ -73,6 +75,8 @@ int main(int argc, char **argv)
 
 	std::string json_file = "";
 	command_line.add_option("-j,--json", json_file, "Simulation JSON file")->check(CLI::ExistingFile);
+
+	command_line.add_option("--out", hdf5_out, "Out hdf5 file");
 
 	std::string hdf5_file = "";
 	command_line.add_option("--hdf5", hdf5_file, "Simulation hdf5 file")->check(CLI::ExistingFile);
@@ -194,6 +198,9 @@ int forward_simulation(const CLI::App &command_line,
 
 	Eigen::MatrixXd sol;
 	Eigen::MatrixXd pressure;
+
+	if (hdf5_out != "")
+		state.hdf5_outpath = hdf5_out;
 
 	state.solve_problem(sol, pressure);
 

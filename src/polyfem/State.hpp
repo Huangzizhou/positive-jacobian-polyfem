@@ -670,6 +670,12 @@ namespace polyfem
 		Eigen::MatrixXd initial_sol_update, initial_vel_update;
 		// mapping from positions of geometric nodes to positions of FE basis nodes
 		StiffnessMatrix gbasis_nodes_to_basis_nodes;
+
+
+		std::string hdf5_outpath;
+
+		void dump_basis_nodes(const std::string &path, const Eigen::MatrixXd &u) const;
+		void dump_basis_nodes_transient(const std::string &path) const;
 	};
 
 } // namespace polyfem

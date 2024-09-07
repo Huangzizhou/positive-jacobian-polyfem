@@ -36,6 +36,7 @@ set(SOURCES
 	par_for.hpp
 	raster.cpp
 	raster.hpp
+	Rational.hpp
 	RBFInterpolation.cpp
 	RBFInterpolation.hpp
 	RefElementSampler.cpp

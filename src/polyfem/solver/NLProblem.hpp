@@ -3,6 +3,7 @@
 #include <polyfem/solver/FullNLProblem.hpp>
 #include <polyfem/assembler/RhsAssembler.hpp>
 #include <polyfem/mesh/LocalBoundary.hpp>
+#include <polyfem/State.hpp>
 
 namespace polyfem::solver
 {
@@ -35,7 +36,7 @@ namespace polyfem::solver
 		bool is_step_valid(const TVector &x0, const TVector &x1) const override;
 		bool is_step_collision_free(const TVector &x0, const TVector &x1) const override;
 		double max_step_size(const TVector &x0, const TVector &x1) const override;
-
+		void before_line_search(const TVector &x0, const TVector &x1) override;
 		void line_search_begin(const TVector &x0, const TVector &x1) override;
 		void post_step(const int iter_num, const TVector &x) override;
 
@@ -58,6 +59,8 @@ namespace polyfem::solver
 		virtual TVector reduced_to_full(const TVector &reduced) const;
 
 		void set_apply_DBC(const TVector &x, const bool val);
+
+		State* state;
 
 	protected:
 		virtual Eigen::MatrixXd boundary_values() const;
