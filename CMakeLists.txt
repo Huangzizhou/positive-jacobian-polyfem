@@ -250,6 +250,10 @@ target_link_libraries(polyfem PUBLIC tinyexpr::tinyexpr)
 include(jse)
 target_link_libraries(polyfem PUBLIC jse::jse)
 
+# GMP
+find_package(GMP REQUIRED)
+target_link_libraries(tight_inclusion PUBLIC gmp::gmp)
+
 # natsort library
 include(natsort)
 target_link_libraries(polyfem PUBLIC natsort::natsort)
